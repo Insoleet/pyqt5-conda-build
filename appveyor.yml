@@ -4,7 +4,8 @@ environment:
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
     CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\ci\\appveyor\\run_with_env.cmd"
-
+  ANACONDA_TOKEN:
+    secure: OjKnjIfwmCT54OA/MYq9mjSxVLN2elITvKcY2ASm5cGT0tAUMOvbRGn5VdtqQnq+
   matrix:
     - PYTHON: "C:\\Python35_64"
       PYTHON_VERSION: "3.5"
@@ -28,12 +29,23 @@ install:
   - choco install -y vcredist2013
   - "%CMD_IN_ENV% conda config --set always_yes yes --set changeps1 no"
   - "%CMD_IN_ENV% conda install conda-build"
-  - "%CMD_IN_ENV% conda install qt"
   - "%CMD_IN_ENV% conda create -q -n py35 python=%PYTHON_VERSION% qt5"
 
 build_script:
-  - ".\\ci\\appveyor\\build.cmd"
+  - ".\\appveyor\\build.cmd"
+  # Move the conda package into the current directory, to register it
+  # as an "artifact" for Appveyor. cmd.exe does't have good globbing, so
+  # we'll use a simple python script.
+  - python appveyor\move-conda-package.py pyqt5
+  - python appveyor\move-conda-package.py qt5
+  - python appveyor\move-conda-package.py sip
 
 artifacts:
-  - path: $(PYTHON)\conda-bld\win-$(PYTHON_ARCH)
-    name: pyqt5-conda-win$(PYTHON_ARCH)
+  # Archive the generated conda package in the ci.appveyor.com build report.
+  - path: '*.tar.bz2'
+
+on_success:
+  # Upload built binaries to binstar.org. The globbing and handling of the
+  # exit-status code is tricky in cmd.exe or powershell, so we're just using
+  # a python script.
+  - python appveyor\anaconda-push.py
