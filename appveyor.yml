@@ -29,7 +29,6 @@ install:
   - powershell .\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - choco install -y vcredist2013
-  - @ECHO ON
   - "%CMD_IN_ENV% conda config --set always_yes yes --set changeps1 no"
   - "%CMD_IN_ENV% conda install conda-build"
   - "%CMD_IN_ENV% conda create -q -n py35 python=%PYTHON_VERSION% qt5"
