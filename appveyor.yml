@@ -3,9 +3,11 @@ environment:
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
-    CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\ci\\appveyor\\run_with_env.cmd"
+    CMD_IN_ENV: "cmd /E:ON /V:ON /C .\\appveyor\\run_with_env.cmd"
+	
   ANACONDA_TOKEN:
     secure: OjKnjIfwmCT54OA/MYq9mjSxVLN2elITvKcY2ASm5cGT0tAUMOvbRGn5VdtqQnq+
+	
   matrix:
     - PYTHON: "C:\\Python35_64"
       PYTHON_VERSION: "3.5"
@@ -27,6 +29,7 @@ install:
   - powershell .\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - choco install -y vcredist2013
+  - @ECHO ON
   - "%CMD_IN_ENV% conda config --set always_yes yes --set changeps1 no"
   - "%CMD_IN_ENV% conda install conda-build"
   - "%CMD_IN_ENV% conda create -q -n py35 python=%PYTHON_VERSION% qt5"
