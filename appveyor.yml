@@ -31,7 +31,8 @@ install:
   - powershell .\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Add qt to path
-  - "set PATH=%PATH%;%QTDIR%\bin"
+  - "set PATH=%PATH%;%QTDIR%\\bin"
+  - "echo %PATH%
   - choco install -y vcredist2013
   - "conda config --set always_yes yes --set changeps1 no"
   - "conda install conda-build"
