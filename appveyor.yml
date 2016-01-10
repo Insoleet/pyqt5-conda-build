@@ -32,7 +32,7 @@ install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Add qt to path
   - "set PATH=%PATH%;%QTDIR%\\bin"
-  - "echo %PATH%
+  - "echo %PATH%"
   - choco install -y vcredist2013
   - "conda config --set always_yes yes --set changeps1 no"
   - "conda install conda-build"
