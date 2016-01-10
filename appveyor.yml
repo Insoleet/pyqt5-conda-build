@@ -14,6 +14,7 @@ environment:
       PYTHON_ARCH: "64"
       CONDA_PY: "35"
       CONDA_NPY: "18"
+      QTDIR=C:\Qt\5.5\msvc2013_64
       platform: x64
 
     - PYTHON: "C:\\Python35_32"
@@ -21,6 +22,7 @@ environment:
       PYTHON_ARCH: "32"
       CONDA_PY: "35"
       CONDA_NPY: "18"
+      QTDIR=C:\Qt\5.5\msvc2013
       platform: x86
 
 install:
@@ -28,18 +30,20 @@ install:
   # as well as pip, conda-build, and the binstar CLI
   - powershell .\\appveyor\\install.ps1
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  # Add qt to path
+  - "set PATH=%PATH%;%QTDIR%\bin"
   - choco install -y vcredist2013
-  - "%CMD_IN_ENV% conda config --set always_yes yes --set changeps1 no"
-  - "%CMD_IN_ENV% conda install conda-build"
-  - "%CMD_IN_ENV% conda install anaconda"
+  - "conda config --set always_yes yes --set changeps1 no"
+  - "conda install conda-build"
+  - "conda install anaconda"
 
 build_script:
   - ".\\appveyor\\build.cmd"
   # Move the conda package into the current directory, to register it
   # as an "artifact" for Appveyor. cmd.exe does't have good globbing, so
   # we'll use a simple python script.
-  - python ..\appveyor\move_conda_pkg.py pyqt5
   - python ..\appveyor\move_conda_pkg.py sip
+  - python ..\appveyor\move_conda_pkg.py pyqt5
 
 artifacts:
   # Archive the generated conda package in the ci.appveyor.com build report.
