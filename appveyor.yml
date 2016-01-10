@@ -36,7 +36,7 @@ install:
   - choco install -y vcredist2013
   - "conda config --set always_yes yes --set changeps1 no"
   - "conda install conda-build"
-  - "conda install anaconda"
+  - "conda install anaconda-client"
 
 build_script:
   - ".\\appveyor\\build.cmd"
