@@ -4,5 +4,5 @@
         --confirm-license ^
         --bindir=%PREFIX%\Scripts
 
-jom
-jom install
+nmake
+nmake install
