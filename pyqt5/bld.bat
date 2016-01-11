@@ -1,5 +1,5 @@
 %PYTHON% configure.py ^
-        --spec=win32-msvc2015 ^
+        --spec=win32-msvc2013 ^
         --assume-shared ^
         --verbose ^
         --confirm-license ^
