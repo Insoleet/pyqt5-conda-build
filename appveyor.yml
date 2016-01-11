@@ -34,7 +34,7 @@ install:
   # as well as pip, conda-build, and the binstar CLI
   - powershell .\\appveyor\\install.ps1
   - curl -kLO %QDOWNLOAD%
-  - %QINSTALLER% -script qt-installer-noninteractive.qs
+  - "%QINSTALLER% -script qt-installer-noninteractive.qs"
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Add qt to path
   - "set PATH=%QTDIR%\\bin;%PATH%"
