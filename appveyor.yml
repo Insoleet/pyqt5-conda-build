@@ -34,10 +34,8 @@ install:
   # as well as pip, conda-build, and the binstar CLI
   - powershell .\\appveyor\\install.ps1
   - curl -kLO %QDOWNLOAD%
-  - 7z x %QINSTALLER%
-  - dir
-  - move "5.6" "C:\\Qt\\5.6"
-  - dir /b /s /ad c:\Qt
+  - 7z x %QINSTALLER% -oC:\Qt\5.6"
+  - dir /b /s /ad c:\Qt\5.6
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Add qt to path
   - "set PATH=%QTDIR%\\bin;%PATH%"
