@@ -35,8 +35,8 @@ install:
   - powershell .\\appveyor\\install.ps1
   - curl -kLO %QDOWNLOAD%
   - 7z x %QINSTALLER% > nul
-  - write-host $OUTDIR
-  - move $OUTDIR "C:\Qt\5.6.0"
+  - echo %OUTDI%
+  - move %OUTDIR% "C:\Qt\5.6.0"
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Add qt to path
   - "set PATH=%QTDIR%\\bin;%PATH%"
