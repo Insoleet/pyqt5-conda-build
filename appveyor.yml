@@ -35,6 +35,7 @@ install:
   - powershell .\\appveyor\\install.ps1
   - curl -kLO %QDOWNLOAD%
   - "%QINSTALLER% --script qt-installer-noninteractive.qs"
+  - dir /b /s /ad c:\Qt
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Add qt to path
   - "set PATH=%QTDIR%\\bin;%PATH%"
