@@ -36,12 +36,11 @@ install:
   - powershell .\\appveyor\\install.ps1
   - IF NOT EXIST C:\Qt\5.6\5.6 curl -kLO %QDOWNLOAD%
   - IF NOT EXIST C:\Qt\5.6\5.6 %QINSTALLER% --script qt-installer-noninteractive.qs
-  - dir /b /s /ad c:\Qt
+  # - dir /b /s /ad c:\Qt
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Add qt to path
   - "set PATH=%QTDIR%\\bin;%PATH%"
   - "echo %PATH%"
-  - choco install -y vcredist2015
   - "conda config --set always_yes yes --set changeps1 no"
   - "conda install conda-build"
   - "conda install anaconda-client"
