@@ -28,13 +28,14 @@ environment:
       QDOWNLOAD: "http://download.qt.io/development_releases/qt/5.6/5.6.0-beta/qt-opensource-windows-x86-msvc2015-5.6.0-beta.exe"
       QINSTALLER: "qt-opensource-windows-x86-msvc2015-5.6.0-beta.exe"
       platform: x86
-
+cache:
+  - C:\\Qt\\5.6\\5.6
 install:
   # this installs the appropriate Miniconda (Py2/Py3, 32/64 bit),
   # as well as pip, conda-build, and the binstar CLI
   - powershell .\\appveyor\\install.ps1
-  - curl -kLO %QDOWNLOAD%
-  - "%QINSTALLER% --script qt-installer-noninteractive.qs"
+  - IF NOT EXIST C:\Qt\5.6\5.6 curl -kLO %QDOWNLOAD%
+  - IF NOT EXIST C:\Qt\5.6\5.6 %QINSTALLER% --script qt-installer-noninteractive.qs
   - dir /b /s /ad c:\Qt
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   # Add qt to path
@@ -46,19 +47,19 @@ install:
   - "conda install anaconda-client"
 
 build_script:
-  - ".\\appveyor\\build.cmd"
+  #- ".\\appveyor\\build.cmd"
   # Move the conda package into the current directory, to register it
   # as an "artifact" for Appveyor. cmd.exe does't have good globbing, so
   # we'll use a simple python script.
-  - python appveyor\move_conda_pkg.py sip
-  - python appveyor\move_conda_pkg.py pyqt5
+  #- python appveyor\move_conda_pkg.py sip
+  #- python appveyor\move_conda_pkg.py pyqt5
 
 artifacts:
   # Archive the generated conda package in the ci.appveyor.com build report.
-  - path: '*.tar.bz2'
+  #- path: '*.tar.bz2'
 
 on_success:
   # Upload built binaries to binstar.org. The globbing and handling of the
   # exit-status code is tricky in cmd.exe or powershell, so we're just using
   # a python script.
-  - python appveyor\anaconda_push.py
+  #- python appveyor\anaconda_push.py
