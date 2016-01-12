@@ -29,7 +29,7 @@ environment:
       QINSTALLER: "qt-opensource-windows-x86-msvc2015-5.6.0-beta.exe"
       platform: x86
 cache:
-  - C:\\Qt\\5.6\\5.6
+  - C:\Qt\5.6\5.6
 install:
   # this installs the appropriate Miniconda (Py2/Py3, 32/64 bit),
   # as well as pip, conda-build, and the binstar CLI
