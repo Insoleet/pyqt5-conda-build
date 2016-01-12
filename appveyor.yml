@@ -54,9 +54,9 @@ build_script:
   #- python appveyor\move_conda_pkg.py sip
   #- python appveyor\move_conda_pkg.py pyqt5
 
-artifacts:
+#artifacts:
   # Archive the generated conda package in the ci.appveyor.com build report.
-  - path: '*.tar.bz2'
+  #- path: '*.tar.bz2'
 
 on_success:
   # Upload built binaries to binstar.org. The globbing and handling of the
