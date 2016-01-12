@@ -38,7 +38,7 @@ install:
   - IF NOT EXIST C:\Qt\5.6\5.6 %QINSTALLER% --script qt-installer-noninteractive.qs
   # - dir /b /s /ad c:\Qt
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "MOVE %QTDIR%\include\QtNfc %QTDIR%\include\QtNfc-disable"
+  - "MOVE %QTDIR%\\include\\QtNfc %QTDIR%\\include\\QtNfc-disable"
   # Add qt to path
   - "set PATH=%QTDIR%\\bin;%PATH%"
   - "echo %PATH%"
