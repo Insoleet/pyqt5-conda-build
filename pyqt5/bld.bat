@@ -4,7 +4,7 @@
         --confirm-license ^
         --bindir=%PREFIX%\Scripts ^
         --enable QtCore ^
-        --enable QtWidget ^
+        --enable QtWidgets ^
         --enable QtGui ^
         --enable QtSvg
 
