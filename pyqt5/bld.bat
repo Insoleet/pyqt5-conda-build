@@ -6,7 +6,9 @@
         --enable QtCore ^
         --enable QtWidgets ^
         --enable QtGui ^
-        --enable QtSvg
+        --enable QtSvg ^
+        --enable QtTest
+
 
 nmake
 nmake install
