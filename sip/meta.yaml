@@ -5,7 +5,7 @@ package:
 source:
   fn:   sip-4.18.dev1603251537.zip                                                                             [win]
   url:  https://www.riverbankcomputing.com/static/Downloads/sip4/sip-4.18.dev1603251537.zip      [win]
-  sha1: c58eb1e14c9b26930f86074b7dd5ec33f38c6cc5                                                 [win]
+  sha1: a6ef8e3fd7616c8e238934d66a4243d068bcf2e5                                                 [win]
 
 requirements:
   build:
