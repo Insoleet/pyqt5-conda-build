@@ -8,7 +8,7 @@
         --enable QtGui ^
         --enable QtSvg ^
         --enable QtTest ^
-        --enable QtWebKit
+        --enable QtWebEngineWidgets
 
 
 nmake
