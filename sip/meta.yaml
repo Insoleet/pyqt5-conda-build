@@ -1,14 +1,11 @@
 package:
   name: sip
-  version: 4.17
+  version: 4.18
 
 source:
-  fn:   sip-4.17.tar.gz                                                            [unix]
-  url:  http://downloads.sourceforge.net/project/pyqt/sip/sip-4.17/sip-4.17.tar.gz   [unix]
-  sha1: 1de4c10bcc809ecf9093c783d9530ff4403c8210                                     [unix]
-  fn:   sip-4.17.zip                                                               [win]
-  url:  http://downloads.sourceforge.net/project/pyqt/sip/sip-4.17/sip-4.17.zip      [win]
-  sha1: c58eb1e14c9b26930f86074b7dd5ec33f38c6cc5                                     [win]
+  fn:   sip-4.18.dev1603251537.zip                                                                             [win]
+  url:  https://www.riverbankcomputing.com/static/Downloads/sip4/sip-4.18.dev1603251537.zip      [win]
+  sha1: c58eb1e14c9b26930f86074b7dd5ec33f38c6cc5                                                 [win]
 
 requirements:
   build:

@@ -3,12 +3,9 @@ package:
   version: 5.6
 
 source:
-  fn:   PyQt-gpl-5.6.zip                                                                                [win]
+  fn:   PyQt5_gpl-5.6.dev1603280007.zip                                                                               [win]
   url:  https://www.riverbankcomputing.com/static/Downloads/PyQt5/PyQt5_gpl-5.6.dev1603280007.zip       [win]
   sha1: f23e7eed14c622df9e7e59b217c41b0c8ca9cec3                                                        [win]
-  fn:   PyQt-gpl-5.6.tar.gz                                                                [unix]
-  url:  http://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.5.1/PyQt-gpl-5.5.1.tar.gz    [unix]
-  sha1: d54cd7cf26b10f0b59fddce4a6a742f9697a94ff                                             [unix]
 
   patches:
     - configure.patch       [osx]
@@ -16,11 +13,11 @@ source:
 requirements:
   build:
     - python
-    - sip     >=4.17
+    - sip     >=4.18
 
   run:
     - python
-    - sip     >=4.17
+    - sip     >=4.18
 
 test:
   imports:
