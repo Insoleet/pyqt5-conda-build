@@ -3,9 +3,9 @@ package:
   version: 4.18
 
 source:
-  fn:   sip-4.18.dev1603251537.zip                                                                             [win]
-  url:  https://www.riverbankcomputing.com/static/Downloads/sip4/sip-4.18.dev1603251537.zip      [win]
-  sha1: a6ef8e3fd7616c8e238934d66a4243d068bcf2e5                                                 [win]
+  fn:   sip-4.18.dev1603301031.zip                                                                             [win]
+  url:  https://www.riverbankcomputing.com/static/Downloads/sip4/sip-4.18.dev1603301031.zip      [win]
+  sha1: cf7530689e3fc964e63c6d592a2c3592a6dd8ce9                                                 [win]
 
 requirements:
   build:
