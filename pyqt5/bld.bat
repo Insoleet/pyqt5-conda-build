@@ -7,8 +7,8 @@
         --enable QtWidgets ^
         --enable QtGui ^
         --enable QtSvg ^
-        --enable QtWebKit ^
-        --enable QtWebKitWidgets ^
+        --enable QtWebEngine ^
+        --enable QtWebEngineWidgets ^
         --enable QtNetwork ^
         --enable QtPrintSupport ^
         --enable QtTest
