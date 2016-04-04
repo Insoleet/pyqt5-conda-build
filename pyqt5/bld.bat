@@ -2,7 +2,7 @@
         --assume-shared ^
         --verbose ^
         --confirm-license ^
-        --bindir=%PREFIX%^Scripts ^
+        --bindir=%PREFIX%\Scripts ^
         --enable QtCore ^
         --enable QtWidgets ^
         --enable QtGui ^
@@ -11,7 +11,7 @@
         --enable QtWebEngineWidgets ^
         --enable QtNetwork ^
         --enable QtPrintSupport ^
-        --enable QtTest
+        --enable QtTest ^
 
 
 nmake
